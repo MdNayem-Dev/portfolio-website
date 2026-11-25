@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent unwanted iOS Safari auto-zoom on input focus */
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* Custom CSS utilities matching the reference */
+.font-serif-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(20px, -18px, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(-16px, 14px, 0) scale(0.96);
+  }
+}
+
+.soft-orb {
+  filter: blur(65px);
+  opacity: 0.55;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: 22s ease-in-out infinite alternate floatOrb;
+  position: absolute;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (max-width: 768px) {
+  .soft-orb {
+    animation: none;
+    filter: blur(45px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-orb {
+    animation: none;
+  }
+}
+
+.bento-card {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.04), 0 2px 6px -2px rgba(15, 23, 42, 0.02);
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(203, 213, 225, 1);
+}
+
+.dark .bento-card {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.45), 0 2px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+.dark .bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.65), 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+  border-color: rgba(71, 85, 105, 0.9);
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-3d-name {
+  --shadow-x: 0.8px;
+  --shadow-y: 1px;
+  color: #090d16;
+  letter-spacing: -0.015em;
+  cursor: default;
+  text-shadow:
+    calc(var(--shadow-x) * -0.5) calc(var(--shadow-y) * -0.5) 0px rgba(255, 255, 255, 0.9),
+    calc(var(--shadow-x) * 0.8) calc(var(--shadow-y) * 0.8) 0px #cbd5e1,
+    calc(var(--shadow-x) * 1.5) calc(var(--shadow-y) * 1.5) 0px #94a3b8,
+    calc(var(--shadow-x) * 2.2) calc(var(--shadow-y) * 2.2) 0px #64748b,
+    calc(var(--shadow-x) * 3) calc(var(--shadow-y) * 3) 6px rgba(15, 23, 42, 0.16),
+    0px 8px 24px rgba(37, 99, 235, 0.2);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.2s ease-out;
+  display: inline-block;
+  position: relative;
+}
+
+.dark .hero-3d-name {
+  color: #f8fafc;
+  text-shadow:
+    calc(var(--shadow-x) * -0.5) calc(var(--shadow-y) * -0.5) 0px rgba(15, 23, 42, 0.8),
+    calc(var(--shadow-x) * 0.8) calc(var(--shadow-y) * 0.8) 0px #334155,
+    calc(var(--shadow-x) * 1.5) calc(var(--shadow-y) * 1.5) 0px #1e293b,
+    calc(var(--shadow-x) * 2.2) calc(var(--shadow-y) * 2.2) 0px #0f172a,
+    calc(var(--shadow-x) * 3) calc(var(--shadow-y) * 3) 8px rgba(0, 0, 0, 0.5),
+    0px 8px 24px rgba(59, 130, 246, 0.35);
+}
+
+.hero-3d-heading {
+  text-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+}
+
+.hero-floating {
+  animation: 5s ease-in-out infinite heroBounce;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 3D button press effect */
+.press-3d {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.press-3d:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Infinite Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 32s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 32s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Hardware accelerated tilt & float cards */
+.tilt-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Sleek custom scrollbars for Light & Dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.9);
+}
