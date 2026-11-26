@@ -115,13 +115,13 @@ export const DeveloperStory: React.FC = () => {
           >
             {/* Outer Atmospheric Aura */}
             <div
-              className="w-[125%] h-[115%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.36)_0%,rgba(99,102,241,0.24)_38%,rgba(168,85,247,0.12)_60%,transparent_78%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.20)_0%,rgba(99,102,241,0.14)_38%,rgba(168,85,247,0.08)_60%,transparent_78%)] blur-2xl sm:blur-3xl animate-pulse"
+              className="w-[125%] h-[115%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.36)_0%,rgba(99,102,241,0.24)_38%,rgba(168,85,247,0.12)_60%,transparent_78%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.16)_0%,rgba(59,130,246,0.10)_38%,rgba(30,58,138,0.05)_60%,transparent_78%)] blur-2xl sm:blur-3xl animate-pulse"
               style={{ animationDuration: '6s' }}
             />
-            {/* Concentrated Bright Center Light behind subject */}
-            <div className="absolute top-1/8 w-[88%] h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(186,230,253,0.60)_0%,rgba(59,130,246,0.38)_40%,rgba(14,165,233,0.18)_65%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(186,230,253,0.25)_0%,rgba(59,130,246,0.18)_40%,rgba(14,165,233,0.08)_65%,transparent_75%)] blur-xl sm:blur-2xl" />
-            {/* Delicate illuminated neon rim ring */}
-            <div className="absolute w-[280px] xs:w-[320px] sm:w-[420px] lg:w-[460px] h-[280px] xs:h-[320px] sm:h-[420px] lg:h-[460px] rounded-full border border-blue-400/25 dark:border-blue-500/20 bg-gradient-to-tr from-blue-500/10 via-cyan-400/12 to-emerald-400/8 dark:from-blue-500/5 dark:via-cyan-400/8 dark:to-emerald-400/5 shadow-[0_0_60px_rgba(59,130,246,0.22)] dark:shadow-[0_0_60px_rgba(59,130,246,0.15)]" />
+            {/* Concentrated Center Light behind subject */}
+            <div className="absolute top-1/8 w-[88%] h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(186,230,253,0.60)_0%,rgba(59,130,246,0.38)_40%,rgba(14,165,233,0.18)_65%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(29,78,216,0.16)_0%,rgba(30,58,138,0.10)_40%,rgba(15,23,42,0.05)_65%,transparent_75%)] blur-xl sm:blur-2xl" />
+            {/* Delicate illuminated rim ring */}
+            <div className="absolute w-[280px] xs:w-[320px] sm:w-[420px] lg:w-[460px] h-[280px] xs:h-[320px] sm:h-[420px] lg:h-[460px] rounded-full border border-blue-400/25 dark:border-blue-600/15 bg-gradient-to-tr from-blue-500/10 via-cyan-400/12 to-emerald-400/8 dark:from-blue-600/5 dark:via-blue-500/4 dark:to-indigo-600/3 shadow-[0_0_60px_rgba(59,130,246,0.22)] dark:shadow-[0_0_50px_rgba(37,99,235,0.08)]" />
           </div>
 
           {/* 3D Tilt Card containing transparent cutout & Floating Glass Badges */}

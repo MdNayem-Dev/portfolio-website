@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Preloader } from './components/Preloader';
 import { CustomCursor } from './components/CustomCursor';
 import { BackgroundAmbient } from './components/BackgroundAmbient';
 import { Navbar } from './components/Navbar';
@@ -39,7 +38,6 @@ const pageVariants = {
 
 export const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>('home');
-  const [showPreloader, setShowPreloader] = useState<boolean>(true);
   const [adminOpen, setAdminOpen] = useState<boolean>(false);
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
 
@@ -99,9 +97,6 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen min-h-[100dvh] flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-200 relative selection:bg-blue-600 selection:text-white max-w-full overflow-x-hidden transition-colors duration-300">
-      {/* Welcome Preloader Overlay */}
-      {showPreloader && <Preloader onComplete={() => setShowPreloader(false)} />}
-
       {/* Custom Mouse Cursor (Desktop fine pointers only) */}
       <CustomCursor />
 
